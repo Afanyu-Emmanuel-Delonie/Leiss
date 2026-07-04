@@ -89,7 +89,7 @@ export default function Memories() {
               flexShrink: 0,
               border: '1px solid rgba(255,255,255,0.06)',
             }}>
-              <img src={src} alt="" style={{
+              <img src={src} alt="" loading="lazy" decoding="async" style={{
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',

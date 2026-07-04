@@ -290,7 +290,7 @@ export default function Hero() {
               <span key={i} className="sparkle" style={{ top: s.top, left: s.left, right: s.right, animationDelay: s.delay }}>✦</span>
             ))}
             <div ref={portraitRef} className="gsap-hidden portrait-float portrait-glow" style={{ position: 'relative' }}>
-              <img src="/assets/hero-1.png" alt="Leiss Uwase" className="portrait-img" />
+              <img src="/assets/hero-1.png" alt="Leiss Uwase" className="portrait-img" loading="eager" decoding="async" />
               <div style={{
                 position: 'absolute', bottom: 0, left: 0, right: 0,
                 height: '35%',
