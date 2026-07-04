@@ -1,0 +1,341 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@300;400;500&display=swap');
+
+@theme {
+  --color-bg: #0a0a0a;
+  --color-surface: #111111;
+  --color-border: #1e1e1e;
+  --color-accent: #8E1B1B;
+  --color-accent-light: #b52a2a;
+  --color-muted: #555555;
+  --color-text: #e8e0d5;
+  --color-text-soft: #7a6e64;
+
+  --font-title: 'Syne', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Spacing scale: 4px base */
+  --sp-1:  0.25rem;  /*  4px */
+  --sp-2:  0.5rem;   /*  8px */
+  --sp-3:  0.75rem;  /* 12px */
+  --sp-4:  1rem;     /* 16px */
+  --sp-5:  1.25rem;  /* 20px */
+  --sp-6:  1.5rem;   /* 24px */
+  --sp-8:  2rem;     /* 32px */
+  --sp-10: 2.5rem;   /* 40px */
+  --sp-12: 3rem;     /* 48px */
+  --sp-16: 4rem;     /* 64px */
+  --sp-20: 5rem;     /* 80px */
+  --sp-24: 6rem;     /* 96px */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+/* Nav */
+.nav-glass {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(10, 10, 10, 0.75);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Status dot */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+  animation: pulse-green 2s ease-in-out infinite;
+}
+
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25); }
+  50%       { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.1); }
+}
+
+/* Background ghost text */
+.ghost-text {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: clamp(5rem, 18vw, 18rem);
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.04);
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+  letter-spacing: 0.05em;
+}
+
+/* Dotted pattern */
+.dot-pattern {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Portrait glow */
+.portrait-glow {
+  filter: grayscale(1);
+}
+
+/* Portrait float */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+
+.portrait-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Sparkle */
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+  50%       { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+
+.sparkle {
+  position: absolute;
+  font-size: 1rem;
+  animation: sparkle 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* CTA button */
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-3) var(--sp-8);
+  background: var(--color-accent);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  box-shadow: 0 4px 24px rgba(142, 27, 27, 0.25);
+}
+
+.cta-btn:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 8px 32px rgba(142, 27, 27, 0.4);
+}
+
+/* Highlight list */
+.highlight-item {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #444444;
+  padding: var(--sp-3) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: color 0.3s;
+}
+
+.highlight-item.active {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-6);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--color-text);
+  white-space: nowrap;
+  flex-shrink: 0;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s;
+  cursor: default;
+}
+
+.badge:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 8px 24px rgba(142, 27, 27, 0.25);
+  border-color: rgba(142, 27, 27, 0.5);
+}
+
+/* Scrolling badges ticker */
+.badges-track {
+  display: flex;
+  gap: var(--sp-4);
+  animation: scroll-badges 18s linear infinite;
+}
+
+.badges-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-badges {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Portrait image sizing — desktop default */
+.portrait-img {
+  width: auto;
+  height: min(85vh, 700px);
+  display: block;
+  object-fit: contain;
+}
+
+/* GSAP initial states */
+.gsap-hidden { opacity: 0; }
+
+/* ── Mobile only (≤ 767px) ───────────────────────────── */
+@media (max-width: 767px) {
+
+  .hero-section {
+    padding-top: 64px !important;
+    min-height: unset !important;
+    height: auto !important;
+    overflow: visible !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  /* 1. Heading: first in flow, centered, sits behind portrait */
+  .hero-heading {
+    padding: var(--sp-8) var(--sp-6) 0 !important;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-heading h1 {
+    font-size: clamp(2.2rem, 11vw, 3.5rem) !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  /* 2. Body grid becomes a column */
+  .hero-body {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 0 var(--sp-6) !important;
+    gap: 0 !important;
+    width: 100%;
+  }
+
+  /* 3. Portrait: first inside body, pulled UP over the heading with negative margin */
+  .hero-portrait-col {
+    order: 0;
+    width: 100%;
+    display: flex !important;
+    justify-content: center !important;
+    position: relative;
+    z-index: 2;
+    margin-top: 20px;
+  }
+  /* Portrait image: mobile sizing, independent of desktop */
+  .portrait-img {
+    width: 90% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+  }
+
+  .hero-portrait-col .portrait-float {
+    width: 100vw !important;
+    max-width: 100%;
+  }
+  .hero-portrait-col img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+  }
+
+  /* 4. Left + right: centered below portrait */
+  .hero-left {
+    order: 1;
+    padding: var(--sp-6) 0 !important;
+    text-align: center;
+    width: 100%;
+  }
+  .hero-left p { margin-left: auto; margin-right: auto; }
+  .hero-left .cta-btn { margin: 0 auto; display: block; width: fit-content; }
+
+  .hero-right {
+    order: 2;
+    padding: var(--sp-8) 0 var(--sp-8) !important;
+    text-align: center;
+    width: 100%;
+  }
+  .hero-right .highlight-item {
+    max-width: 260px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+
+  .badge {
+    padding: var(--sp-2) var(--sp-4);
+    font-size: 0.7rem;
+  }
+}
+
+
+/* ── Animation utilities ─────────────────────────────── */
+
+/* Clip-path text reveal — set by GSAP */
+.reveal-clip {
+  clip-path: inset(0 100% 0 0);
+}
+
+/* Fade up — initial state, GSAP drives to visible */
+.fade-up {
+  opacity: 0;
+  transform: translateY(48px);
+}
+
+.fade-left {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+
+.fade-right {
+  opacity: 0;
+  transform: translateX(40px);
+}
+
+/* Section label line — grows from left */
+.line-grow {
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+/* Cursor glow follower */
+#cursor-glow {
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(142,27,27,0.07) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+}
