@@ -125,15 +125,15 @@ export default function Letter() {
   </p>
 
   <p style={{ margin: 0 }}>
-    If I keep going I’ll end up writing a whole book. But maybe that’s the point  just three years and you’ve already written something deep into my life that I’ll never erase. A whole dictionary in my DNA.
+    If I keep going I’ll end up writing a whole book. But maybe that’s the point — just three years and you’ve already written something deep into my life that I’ll never erase. A whole dictionary in my DNA.
   </p>
 
   <p style={{ margin: 0 }}>
-    I’m forever grateful for knowing you. And I pray God grants your heart’s desires in this new age  more happiness, more peace, and yes… more money. Very important.
+    I’m forever grateful for knowing you. And I pray God grants your heart’s desires in this new age — more happiness, more peace, and yes… more money. Very important.
   </p>
 
   <p style={{ margin: 0, color: '#e8e0d5' }}>
-    Today is yours. Not just the birthday  the whole year. And I hope when you read this, you laugh a little… maybe tear up a little too… and just know you’re deeply appreciated.
+    Today is yours. Not just the birthday — the whole year. And I hope when you read this, you laugh a little… maybe tear up a little too… and just know you’re deeply appreciated.
   </p>
 
   <p style={{ margin: 0, color: '#e8e0d5' }}>

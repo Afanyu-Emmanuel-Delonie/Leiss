@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 
-const activities = [...[
+const activities = [
   {
     icon: '👑',
     title: 'A Full Day With Mom, Elona & Princess',
@@ -9,12 +9,12 @@ const activities = [...[
   {
     icon: '📞',
     title: 'Two Hours With De-Lonie',
-    body: 'Call him. Not a voice note, not a text — a real call. Two hours minimum. Talk about where you\'re both headed, what scares you, what excites you. The friendships that survive distance are the ones worth protecting.',
+    body: 'Call him. Not a voice note, not a text a real call. Two hours minimum. Talk about where you\'re both headed, what scares you, what excites you or even start a fight haha. The friendships that survive distance are the ones worth protecting.',
   },
   {
     icon: '🍦',
     title: 'Ice Cream Date With Westly',
-    body: 'Find somewhere new in the Kigali neither of you has tried. Order something you wouldn\'t normally pick lke mandazi and coke. Walk after. Talk about the future  yours, his, the one you\'re both building. Simple evenings become the ones you remember most.',
+    body: 'Find somewhere new in the city neither of you has tried. Order something you wouldn\'t normally pick. Walk after. Talk about the future — yours, his, the one you\'re both building. Simple evenings become the ones you remember most.',
   },
   {
     icon: '🎬',
@@ -31,7 +31,7 @@ const activities = [...[
     title: 'Write Yourself a Letter',
     body: 'Sit somewhere quiet. Open a notebook, a notes app, anything. Write to the Leiss who\'ll read this in a year — what you\'re proud of right now, what you\'re still figuring out, what you\'re finally letting go of. Be honest. Be kind. Seal it. She\'ll need it.',
   },
-]].sort(() => Math.random() - 0.5)
+]
 
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
@@ -59,56 +59,109 @@ function Card({ item, index }) {
       ref={ref}
       onClick={() => setFlipped(f => !f)}
       style={{
+        height: 'auto',
+        minHeight: 220,
         cursor: 'pointer',
-        borderRadius: 20,
+        perspective: '1000px',
         opacity: visible ? 1 : 0,
         transform: visible ? 'translateY(0)' : 'translateY(28px)',
         transition: `opacity 0.6s ease ${index * 0.08}s, transform 0.6s ease ${index * 0.08}s`,
-        position: 'relative',
-        height: '100%',
       }}
     >
-      {/* Front — mystery */}
       <div style={{
-        display: flipped ? 'none' : 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: 12,
-        padding: 24,
-        height: '100%',
+        width: '100%',
         minHeight: 220,
-        boxSizing: 'border-box',
-        background: 'rgba(255,255,255,0.03)',
-        border: '1px solid rgba(255,255,255,0.07)',
-        borderRadius: 20,
+        position: 'relative',
+        transformStyle: 'preserve-3d',
+        transition: 'transform 0.6s cubic-bezier(0.4,0,0.2,1)',
+        transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
       }}>
-        <div style={{
-          width: 52, height: 52, borderRadius: '50%',
-          background: 'rgba(255,255,255,0.04)',
-          border: '1px solid rgba(255,255,255,0.08)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontSize: '1.4rem', filter: 'blur(6px)', userSelect: 'none',
-        }}>{item.icon}</div>
-        <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.68rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: '#555' }}>Mystery Activity</div>
-        <div style={{ fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: '1.1rem', color: 'rgba(255,255,255,0.12)', letterSpacing: '0.3em' }}>? ? ?</div>
-        <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.72rem', color: '#8E1B1B', letterSpacing: '0.12em', marginTop: 4 }}>Tap to reveal</div>
-      </div>
 
-      {/* Back — revealed */}
-      <div style={{
-        display: flipped ? 'flex' : 'none',
-        flexDirection: 'column',
-        padding: '24px',
-        background: 'rgba(142,27,27,0.07)',
-        border: '1px solid rgba(142,27,27,0.25)',
-        borderRadius: 20,
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
-          <span style={{ fontSize: '1.2rem' }}>{item.icon}</span>
-          <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: 'clamp(0.85rem, 1.3vw, 1rem)', color: '#e8e0d5', lineHeight: 1.2 }}>{item.title}</span>
+        {/* Front — mystery */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backfaceVisibility: 'hidden',
+          WebkitBackfaceVisibility: 'hidden',
+          background: 'rgba(255,255,255,0.03)',
+          border: '1px solid rgba(255,255,255,0.07)',
+          borderRadius: 20,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 12,
+          padding: 24,
+        }}>
+          <div style={{
+            width: 52,
+            height: 52,
+            borderRadius: '50%',
+            background: 'rgba(255,255,255,0.04)',
+            border: '1px solid rgba(255,255,255,0.08)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '1.4rem',
+            filter: 'blur(6px)',
+            userSelect: 'none',
+          }}>{item.icon}</div>
+          <div style={{
+            fontFamily: 'Inter, sans-serif',
+            fontSize: '0.68rem',
+            letterSpacing: '0.22em',
+            textTransform: 'uppercase',
+            color: '#555',
+          }}>Mystery Activity</div>
+          <div style={{
+            fontFamily: 'Syne, sans-serif',
+            fontWeight: 700,
+            fontSize: '1.1rem',
+            color: 'rgba(255,255,255,0.12)',
+            letterSpacing: '0.3em',
+          }}>? ? ?</div>
+          <div style={{
+            fontFamily: 'Inter, sans-serif',
+            fontSize: '0.72rem',
+            color: '#8E1B1B',
+            letterSpacing: '0.12em',
+            marginTop: 4,
+          }}>Tap to reveal</div>
         </div>
-        <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.82rem', lineHeight: 1.75, color: 'rgba(232,224,213,0.65)', margin: 0 }}>{item.body}</p>
+
+        {/* Back — revealed */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backfaceVisibility: 'hidden',
+          WebkitBackfaceVisibility: 'hidden',
+          transform: 'rotateY(180deg)',
+          background: 'rgba(142,27,27,0.07)',
+          border: '1px solid rgba(142,27,27,0.25)',
+          borderRadius: 20,
+          display: 'flex',
+          flexDirection: 'column',
+          padding: '24px 24px',
+          overflow: 'hidden',
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+            <span style={{ fontSize: '1.2rem' }}>{item.icon}</span>
+            <span style={{
+              fontFamily: 'Syne, sans-serif',
+              fontWeight: 700,
+              fontSize: 'clamp(0.85rem, 1.3vw, 1rem)',
+              color: '#e8e0d5',
+              lineHeight: 1.2,
+            }}>{item.title}</span>
+          </div>
+          <p style={{
+            fontFamily: 'Inter, sans-serif',
+            fontSize: '0.82rem',
+            lineHeight: 1.75,
+            color: 'rgba(232,224,213,0.65)',
+            margin: 0,
+          }}>{item.body}</p>
+        </div>
       </div>
     </div>
   )
@@ -186,7 +239,6 @@ export default function Mystery() {
           display: 'grid',
           gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
           gap: 16,
-          alignItems: 'stretch',
         }}>
           {activities.map((item, i) => <Card key={i} item={item} index={i} />)}
         </div>

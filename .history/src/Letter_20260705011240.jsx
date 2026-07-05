@@ -101,11 +101,11 @@ export default function Letter() {
   </p>
 
   <p style={{ margin: 0 }}>
-    You never tried to fix me in a harsh way, but in your own way you still did. You never judged me. You always found a way to correct me when I was wrong but in a good way, a way that didn’t make me feel small. And somehow that made it easier to listen. That’s rare. That’s you.
+    You never tried to fix me in a harsh way, but in your own way you still did. You never judged me. You always found a way to correct me when I was wrong — but in a good way, a way that didn’t make me feel small. And somehow that made it easier to listen. That’s rare. That’s you.
   </p>
 
   <p style={{ margin: 0 }}>
-    Now I still remember how, in those early days when I joined AUCA in 2023, it was a tough transition. But somehow you stood your ground between me and your friends and still let me in. And I still think about that. I saw the effort. I saw the risk. And I’m grateful. And honestly, you’ve got amazing friends especially Ruth, haha.
+    Now I still remember how, in those early days when I joined AUCA in 2023, it was a tough transition. But somehow you stood your ground between me and your friends and still let me in. And I still think about that. I saw the effort. I saw the risk. And I’m grateful. And honestly, you’ve got amazing friends — especially Ruth, haha.
   </p>
 
   <p style={{ margin: 0 }}>
@@ -117,23 +117,23 @@ export default function Letter() {
   </p>
 
   <p style={{ margin: 0 }}>
-    I still remember how you used to advise me on how to deal with Rwandans, especially the ladies. The way you’d break things down like you were some expert consultant, haha. And the stories like when you’d go “who is that b**** looking at you” when I said I had a crush… or when you wanted to approve everything like it was your official job. It made everything feel lighter. It gave me that sisterly feeling I never really had before. It felt good. Real good.
+    I still remember how you used to advise me on how to deal with Rwandans, especially the ladies. The way you’d break things down like you were some expert consultant, haha. And the stories — like when you’d go “who is that b**** looking at you” when I said I had a crush… or when you wanted to approve everything like it was your official job. It made everything feel lighter. It gave me that sisterly feeling I never really had before. It felt good. Real good.
   </p>
 
   <p style={{ margin: 0 }}>
-    And I can’t forget the day we almost fought at Simba not forgetting how you reacted when I was shocked you wanted a dress for 78k… poor me hahaha. Honestly, I’ve never really seen you angry like that before. That day made me sit back like… “oh so she really means it,” haha.
+    And I can’t forget the day we almost fought at Simba — not forgetting how you reacted when I was shocked you wanted a dress for 78k… poor me hahaha. Honestly, I’ve never really seen you angry like that before. That day made me sit back like… “oh so she really means it,” haha.
   </p>
 
   <p style={{ margin: 0 }}>
-    If I keep going I’ll end up writing a whole book. But maybe that’s the point  just three years and you’ve already written something deep into my life that I’ll never erase. A whole dictionary in my DNA.
+    If I keep going I’ll end up writing a whole book. But maybe that’s the point — just three years and you’ve already written something deep into my life that I’ll never erase. A whole dictionary in my DNA.
   </p>
 
   <p style={{ margin: 0 }}>
-    I’m forever grateful for knowing you. And I pray God grants your heart’s desires in this new age  more happiness, more peace, and yes… more money. Very important.
+    I’m forever grateful for knowing you. And I pray God grants your heart’s desires in this new age — more happiness, more peace, and yes… more money. Very important.
   </p>
 
   <p style={{ margin: 0, color: '#e8e0d5' }}>
-    Today is yours. Not just the birthday  the whole year. And I hope when you read this, you laugh a little… maybe tear up a little too… and just know you’re deeply appreciated.
+    Today is yours. Not just the birthday — the whole year. And I hope when you read this, you laugh a little… maybe tear up a little too… and just know you’re deeply appreciated.
   </p>
 
   <p style={{ margin: 0, color: '#e8e0d5' }}>

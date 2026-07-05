@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react'
 
 const songs = [
-  { n: '01', title: 'The First Secret',     artist: '— — —', id: '0U5gQgUCGYZsC99xAbGA4v' },
-  { n: '02', title: 'Unnamed Feeling',       artist: '— — —', id: '44G2gUVQvNNZ6w3i05tR4n' },
-  { n: '03', title: 'What She Knows',        artist: '— — —', id: '5s33nLb8BCeeKep2rfG7To' },
-  { n: '04', title: 'Quiet Hours',           artist: '— — —', id: '0AoBY2Y3qs6dtGgOD6c91N' },
-  { n: '05', title: 'Before You Wake',       artist: '— — —', id: '1136eJrkWsDvReASbjLTaU' },
+  { n: '01', title: 'The First Secret',     artist: '— — —', id: '5odlY52u43F5BjByhxg7wg' },
+  { n: '02', title: 'Unnamed Feeling',       artist: '— — —', id: '2LBqCSwhJGcFQeTHMVGwy3' },
+  { n: '03', title: 'What She Knows',        artist: '— — —', id: '0U5gQgUCGYZsC99xAbGA4v' },
+  { n: '04', title: 'Quiet Hours',           artist: '— — —', id: '2dHHgzDwk4BJdRwy9uXhTO' },
+  { n: '05', title: 'Before You Wake',       artist: '— — —', id: '4Dvkj6JhhA12EX05fT7y2e' },
   { n: '06', title: 'The Soft Confession',   artist: '— — —', id: '6Z7X86HZWODk0KPVmOsCKR' },
   { n: '07', title: 'Letters Never Sent',    artist: '— — —', id: '7vKXc90NT5WBm3UTT4iTVG' },
-  { n: '08', title: 'Something Like This',   artist: '— — —', id: '7u0z6FcJDqkZwdpqAqUzmO' },
-  { n: '09', title: 'Only You Would Know',   artist: '— — —', id: '0YeUYYOh25Cn57DKTC8uS4' },
-  { n: '10', title: 'The Last One Playing',  artist: '— — —', id: '5ZtK8XAVnoaGdBXZWCEVCY' },
+  { n: '08', title: 'Something Like This',   artist: '— — —', id: '4iJyoBOLtHqaWYs3vyWFQE' },
+  { n: '09', title: 'Only You Would Know',   artist: '— — —', id: '6PCUP3dWmTjcTtXY02oFdT' },
+  { n: '10', title: 'The Last One Playing',  artist: '— — —', id: '2plbrEY59IikOBgBGLjaoe' },
 ]
 
 const PER_PAGE = 5
@@ -25,7 +25,7 @@ function useIsMobile() {
   return isMobile
 }
 
-function SongItem({ s, open, onToggle, onNext }) {
+function SongItem({ s, open, onToggle }) {
   const [hovered, setHovered]        = useState(false)
   const [playHovered, setPlayHovered] = useState(false)
   const [spHovered, setSpHovered]    = useState(false)
@@ -146,25 +146,6 @@ function SongItem({ s, open, onToggle, onNext }) {
             loading="lazy"
             style={{ borderRadius: '10px', display: 'block' }}
           />
-          <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 'var(--sp-2)' }}>
-            <button
-              onClick={onNext}
-              style={{
-                fontFamily: 'var(--font-body)',
-                fontSize: '0.72rem',
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                color: 'var(--color-text-soft)',
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                padding: '0',
-                display: 'flex',
-                alignItems: 'center',
-                gap: 'var(--sp-1)',
-              }}
-            >Next →</button>
-          </div>
         </div>
       )}
     </li>
@@ -177,18 +158,7 @@ export default function Playlist() {
   const isMobile            = useIsMobile()
   const totalPages          = Math.ceil(songs.length / PER_PAGE)
   const paginated           = songs.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE)
-
-  const nextSong = (id) => {
-    const idx = songs.findIndex(s => s.n === id)
-    const next = songs[(idx + 1) % songs.length]
-    setOpenId(next.n)
-    if (isMobile) setPage(Math.floor(songs.indexOf(next) / PER_PAGE))
-  }
-
-  const toggle = (id) => {
-    if (openId === id) nextSong(id)
-    else setOpenId(id)
-  }
+  const toggle              = (id) => setOpenId(prev => prev === id ? null : id)
 
   return (
     <section id="playlist" style={{
@@ -235,7 +205,7 @@ export default function Playlist() {
         {/* Desktop: 2-col grid */}
         {!isMobile && (
           <ul style={{ listStyle: 'none', display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: 'repeat(5, auto)', gridAutoFlow: 'column', gap: '0 var(--sp-16)' }}>
-            {songs.map(s => <SongItem key={s.n} s={s} open={openId === s.n} onToggle={() => toggle(s.n)} onNext={() => nextSong(s.n)} />)}
+            {songs.map(s => <SongItem key={s.n} s={s} open={openId === s.n} onToggle={() => toggle(s.n)} />)}
           </ul>
         )}
 
@@ -243,7 +213,7 @@ export default function Playlist() {
         {isMobile && (
           <div>
             <ul style={{ listStyle: 'none' }}>
-              {paginated.map(s => <SongItem key={s.n} s={s} open={openId === s.n} onToggle={() => toggle(s.n)} onNext={() => nextSong(s.n)} />)}
+              {paginated.map(s => <SongItem key={s.n} s={s} open={openId === s.n} onToggle={() => toggle(s.n)} />)}
             </ul>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 'var(--sp-6)', marginTop: 'var(--sp-8)' }}>
               <button

@@ -106,7 +106,7 @@ export default function Closing() {
           color: 'rgba(232,224,213,0.6)',
           margin: '0 0 48px',
         }}>
-          You made it to another year not just survived it, but grew through it.<br />
+          You made it to another year — not just survived it, but grew through it.<br />
           May this one be lighter, louder, and more yours than any before it.
         </p>
 

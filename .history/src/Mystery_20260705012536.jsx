@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 
-const activities = [...[
+const activities = [
   {
     icon: '👑',
     title: 'A Full Day With Mom, Elona & Princess',
@@ -9,12 +9,12 @@ const activities = [...[
   {
     icon: '📞',
     title: 'Two Hours With De-Lonie',
-    body: 'Call him. Not a voice note, not a text — a real call. Two hours minimum. Talk about where you\'re both headed, what scares you, what excites you. The friendships that survive distance are the ones worth protecting.',
+    body: 'Call that creazy dude. Not a voice note, not a text a real call. Two hours minimum. Talk about where you\'re both headed, what scares you, what excites you or even start a fight haha. The friendships that survive distance are the ones worth protecting.',
   },
   {
     icon: '🍦',
     title: 'Ice Cream Date With Westly',
-    body: 'Find somewhere new in the Kigali neither of you has tried. Order something you wouldn\'t normally pick lke mandazi and coke. Walk after. Talk about the future  yours, his, the one you\'re both building. Simple evenings become the ones you remember most.',
+    body: 'Find somewhere new in the Kigali neither of you has tried. Order something you wouldn\'t normally pick lke mandazi and coke. Walk after. Talk about the future — yours, his, the one you\'re both building. Simple evenings become the ones you remember most.',
   },
   {
     icon: '🎬',
@@ -31,7 +31,7 @@ const activities = [...[
     title: 'Write Yourself a Letter',
     body: 'Sit somewhere quiet. Open a notebook, a notes app, anything. Write to the Leiss who\'ll read this in a year — what you\'re proud of right now, what you\'re still figuring out, what you\'re finally letting go of. Be honest. Be kind. Seal it. She\'ll need it.',
   },
-]].sort(() => Math.random() - 0.5)
+]
 
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768)

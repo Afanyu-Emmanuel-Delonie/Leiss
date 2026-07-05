@@ -133,7 +133,7 @@ export default function Letter() {
   </p>
 
   <p style={{ margin: 0, color: '#e8e0d5' }}>
-    Today is yours. Not just the birthday  the whole year. And I hope when you read this, you laugh a little… maybe tear up a little too… and just know you’re deeply appreciated.
+    Today is yours. Not just the birthday — the whole year. And I hope when you read this, you laugh a little… maybe tear up a little too… and just know you’re deeply appreciated.
   </p>
 
   <p style={{ margin: 0, color: '#e8e0d5' }}>
